@@ -1,12 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import StateTodo from './pages/StateTodo'
+import StateMenu from './pages/StateMenu'
 
 import "./index.css";
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-		<StateTodo />
+		<StateMenu />
   </StrictMode>,
 )

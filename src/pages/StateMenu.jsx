@@ -1,19 +1,19 @@
 import { useState } from "react";
-import AddTodo from "./AddTodo";
-import ListTodo from "./ListTodo";
+import AddMenu from "./AddMenu";
+import ListMenu from "./ListMenu";
 
 let maxId = 0;
-export default function StateTodo() {
+export default function StateMenu() {
   const [title, setTitle] = useState("");
-  const [todo, setTodo] = useState([]);
+  const [menu, setMenu] = useState([]);
 
   const handleChangeTitle = (e) => {
     setTitle(e.target.value);
   };
 
   const handleClick = () => {
-    setTodo([
-      ...todo,
+    setMenu([
+      ...menu,
       {
         id: ++maxId,
         title,
@@ -24,8 +24,8 @@ export default function StateTodo() {
   };
 
   const handleDone = (e) => {
-    setTodo(
-      todo.map(item => {
+    setMenu(
+      menu.map(item => {
         if (item.id === Number(e.target.dataset.id)) {
           return {
 						...item,
@@ -40,12 +40,12 @@ export default function StateTodo() {
 
   return (
     <>
-      <AddTodo
+      <AddMenu
         handleClick={handleClick}
         handleChangeTitle={handleChangeTitle}
         title={title}
       />
-      <ListTodo todo={todo} handleDone={handleDone}/>
+      <ListMenu menu={menu} handleDone={handleDone}/>
     </>
   );
 }
