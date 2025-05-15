@@ -1,16 +1,26 @@
-import Button from "../components/Button"
+import React from "react";
+import Button from "../components/Button";
 
-export default function ListTodo ({menu,handleDone}) {
- return (
-	<ul>
-		{menu.map(item =>
-			<li key={item.id} className={item.isDone ? 'done' : ''}>
-				{item.title}
-				<Button onClick={handleDone} dataId={item.id}>
-					済
-				</Button>
-			</li>
-		 )}
-	</ul>
- )
+export default function ListTodo({ menu }) {
+  return (
+    <ul>
+      {menu.map((item) => (
+        <React.Fragment key={item.id}>
+          <li>
+            {item.title}
+          </li>
+					<li>
+            {item.category}
+          </li>
+					<li>
+						<a href= {item.url}>{item.url}</a>
+          </li>
+					<li>
+            {item.comment}
+          </li>
+					{item.fab ? <p>お気に入り</p> : "" }
+        </React.Fragment>
+      ))}
+    </ul>
+  );
 }
